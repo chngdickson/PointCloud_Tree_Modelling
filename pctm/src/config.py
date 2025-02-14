@@ -11,7 +11,8 @@ class Paths:
     Convenience class for executable paths.
     """
 
-    ADTREE = '../../bin/AdTree' # path of AdTree executable
+    ADTREE = "/usr/local/app/bin/AdTree"
+    # path of AdTree executable
 
     @staticmethod
     def get_adtree():

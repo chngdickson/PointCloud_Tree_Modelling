@@ -39,11 +39,25 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
 
 WORKDIR /usr/local/app
 
+
+# CLone repo
+RUN apt update && apt install -y wget git zsh tmux vim g++ rsync
+RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/v1.1.2/zsh-in-docker.sh)" -- \
+    -t robbyrussell \
+    -p git \
+    -p ssh-agent \
+    -p https://github.com/agkozak/zsh-z \
+    -p https://github.com/zsh-users/zsh-autosuggestions \
+    -p https://github.com/zsh-users/zsh-completions \
+    -p https://github.com/zsh-users/zsh-syntax-highlighting
+RUN git clone https://github.com/chngdickson/PointCloud_Tree_Modelling.git
+WORKDIR /usr/local/app/PointCloud_Tree_Modelling
+
 # PYTHON
 RUN python3 -m pip install --no-cache-dir --upgrade pip && \
     python3 -m pip install --no-cache-dir --upgrade jupyter 
-COPY requirements.txt .
-RUN python3 -m pip install --no-cache-dir -r requirements.txt && rm requirements.txt
+RUN python3 -m pip install --no-cache-dir -r requirements.txt
+
 
 # JUPYTER MODE
 ENTRYPOINT ["jupyter", "notebook", "--ip=0.0.0.0", "--no-browser", "--allow-root"]

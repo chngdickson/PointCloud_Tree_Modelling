@@ -53,26 +53,26 @@ To use this using the docker. Build the provide Dockerfile. code in development 
 
     ```bash
     # Clone the repository
-    $ git clone https://github.com/Amsterdam-AI-Team/PointCloud_Tree_Modelling.git
+    git clone https://github.com/Amsterdam-AI-Team/PointCloud_Tree_Modelling.git
     ```
 
 2. Build the docker image (the building can take a couple of minutes):
 
     ```bash
-    $ docker build -f Dockerfile . -t treemodelling:latest
+    docker build -f Dockerfile . -t treemodelling:latest
     ```
 
 3. Run docker container (as jupyter server on port 8888):
 
     ```bash
-    $ docker run -v `pwd`/pctm:/usr/local/app/pctm -v `pwd`/dataset:/usr/local/app/dataset -it -p 8888:8888 treemodelling:latest
+    docker run -v `pwd`/pctm:/usr/local/app/pctm -v `pwd`/dataset:/usr/local/app/dataset -it -p 8888:8888 treemodelling:latest
     ```
 
     The `-v` command is used to mount volumes for both data and code to the container.
     
     One could run the image in iteractive mode using the following run command: 
     ```
-    $ docker run -v `pwd`/pctm:/usr/local/app/pctm -v `pwd`/dataset:/usr/local/app/dataset -it --entrypoint /bin/bash treemodelling:latest
+    docker run -v `pwd`/pctm:/usr/local/app/pctm -v `pwd`/dataset:/usr/local/app/dataset -it --entrypoint /bin/bash treemodelling:latest
     ```
 
 
