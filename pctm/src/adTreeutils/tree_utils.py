@@ -23,7 +23,7 @@ import networkx as nx
 from scipy.spatial import KDTree
 from alphashape import alphashape
 
-from tree_utils import (
+from adTreeutils import (
       clip_utils,
       graph_utils,
       math_utils,
