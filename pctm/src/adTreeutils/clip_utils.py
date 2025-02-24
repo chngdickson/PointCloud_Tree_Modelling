@@ -13,7 +13,7 @@ import numba
 import numpy as np
 from numba import jit
 
-import utils.math_utils as math_utils
+import adTreeutils.math_utils as math_utils
 
 logger = logging.getLogger(__name__)
 
