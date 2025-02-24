@@ -21,8 +21,8 @@ import pathlib
 import numpy as np
 from tqdm import tqdm
 
-import utils.las_utils as las_utils
-from utils.interpolation import SpatialInterpolator
+import tree_utils.las_utils as las_utils
+from tree_utils.interpolation import SpatialInterpolator
 
 # AHN classification codes (see https://www.ahn.nl/4-classificatie)
 # AHN_ARTIFACT is 'Kunstwerk' which includes 'vlonders/steigers, bruggen en ook
