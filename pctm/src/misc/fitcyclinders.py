@@ -185,7 +185,7 @@ def fit_cylinders_to_stem(stem_cloud, slice_thickness):
         plane_slice = points[
             np.linalg.norm(abs(axis * (points - line_center)), axis=1) < (slice_thickness / 2)
         ]
-        if plane_slice.shape[0] > 0:
+        if plane_slice.shape[0] > 20:
             cyl_center, _, cyl_radius, _, cyl_cci = fit_vertical_cylinder_3D(plane_slice, .03)
             cyl_array = np.vstack((cyl_array, np.array([*cyl_center,cyl_radius,cyl_cci])))
 
