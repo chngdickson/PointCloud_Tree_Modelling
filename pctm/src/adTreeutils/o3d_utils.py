@@ -5,7 +5,7 @@ Open3D utility methods - Module (Python)
 """
 import io
 import math
-
+import cv2
 import laspy
 import trimesh
 import numpy as np
@@ -199,7 +199,7 @@ def save_ax_nosave(ax, **kwargs):
     ax.axis("on")
     buff.seek(0)
     im = plt.imread(buff )
-    return im
+    return cv2.cvtColor(im.astype(np.uint8)*255, cv2.COLOR_BGR2RGB)
 
 def show_mesh(mesh, color=None):
     """Shown mesh."""
