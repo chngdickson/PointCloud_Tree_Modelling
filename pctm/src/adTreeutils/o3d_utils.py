@@ -171,6 +171,13 @@ def plot_mesh(mesh):
     ax.axis('equal')
     plt.show()
 
+def plot_cloud(cloud):
+    fig = plt.figure()
+    ax = plt.axes(projection='3d')
+    points = np.asarray(cloud.points)
+    ax.scatter(points[:,0], points[:,1], points[:,2], s=0.5, alpha=0.9, c=np.asarray(cloud.colors))
+    ax.axis('equal')
+    return ax 
 
 def plot_mesh_cloud(mesh, cloud):
     """Function to plot mesh in combination with cloud."""
