@@ -3,7 +3,7 @@
 """
 Open3D utility methods - Module (Python)
 """
-
+import io
 import math
 
 import laspy
@@ -187,8 +187,19 @@ def plot_mesh_cloud(mesh, cloud):
     ax.plot_trisurf(*zip(*mesh.vertices), triangles=mesh.triangles, color=color, alpha=0.3, linewidth=.5, edgecolor=[0,0,0])
     ax.scatter(points[:,0], points[:,1], points[:,2], s=0.5, alpha=0.9, c=np.asarray(cloud.colors))
     ax.axis('equal')
-    plt.show()
+    return ax
 
+def save_ax_nosave(ax, **kwargs):
+    ax.axis("off")
+    ax.figure.canvas.draw()
+    trans = ax.figure.dpi_scale_trans.inverted() 
+    bbox = ax.bbox.transformed(trans)
+    buff = io.BytesIO()
+    plt.savefig(buff, format="png", dpi=ax.figure.dpi, bbox_inches=bbox,  **kwargs)
+    ax.axis("on")
+    buff.seek(0)
+    im = plt.imread(buff )
+    return im
 
 def show_mesh(mesh, color=None):
     """Shown mesh."""
