@@ -112,8 +112,11 @@ def fit_vertical_cylinder_3D(xyz, th):
 
         # init parameters
         p = [0, 0, 0, 0, max(np.abs(y).max(), np.abs(x).max())]
-
-        # fit
+        
+        # N = 5,
+        # M = Datapoints
+        print(len(x))
+        # fit, if M is less than 5, fuck it fails hahahah
         with warnings.catch_warnings():
             warnings.filterwarnings("ignore")
             fitfunc = lambda p, x, y, z: (- np.cos(p[3])*(p[0] - x) - z*np.cos(p[2])*np.sin(p[3]) - np.sin(p[2])*np.sin(p[3])*(p[1] - y))**2 + (z*np.sin(p[2]) - np.cos(p[2])*(p[1] - y))**2 #fit function
