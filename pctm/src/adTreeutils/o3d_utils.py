@@ -193,7 +193,7 @@ def plot_mesh_cloud(mesh, cloud):
     fig = plt.figure()
     ax = plt.axes(projection='3d')
     ax.plot_trisurf(*zip(*mesh.vertices), triangles=mesh.triangles, color=color, alpha=0.3, linewidth=.5, edgecolor=[0,0,0])
-    ax.scatter(points[:,0], points[:,1], points[:,2], s=0.5, alpha=0.9, c=np.asarray(cloud.colors))
+    ax.scatter(points[:,0], points[:,1], points[:,2], s=0.5, alpha=0.7, c=np.asarray(cloud.colors))
     ax.axis('equal')
     return ax
 
