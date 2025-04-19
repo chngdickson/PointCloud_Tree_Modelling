@@ -177,6 +177,7 @@ def plot_cloud(cloud):
     points = np.asarray(cloud.points)
     ax.scatter(points[:,0], points[:,1], points[:,2], s=0.5, alpha=0.9, c=np.asarray(cloud.colors))
     ax.axis('equal')
+    ax.set_facecolor((1.0, 1.0, 1.0))
     return ax 
 
 def plot_mesh_cloud(mesh, cloud):
