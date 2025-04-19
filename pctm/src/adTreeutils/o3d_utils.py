@@ -176,7 +176,7 @@ def plot_cloud(cloud):
     ax = plt.axes(projection='3d')
     # ax.set_facecolor((0.0, 0.0, 0.0))
     points = np.asarray(cloud.points)
-    ax.scatter(points[:,0], points[:,1], points[:,2], s=0.5, alpha=0.9, c=np.asarray(cloud.colors), facecolors='black')
+    ax.scatter(points[:,0], points[:,1], points[:,2], s=0.5, alpha=0.7, c=np.asarray(cloud.colors), facecolors='black')
     ax.axis('equal')
     return ax 
 
